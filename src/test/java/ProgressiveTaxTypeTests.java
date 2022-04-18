@@ -1,5 +1,7 @@
+import org.hamcrest.core.IsEqual;
 import org.junit.jupiter.api.*;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProgressiveTaxTypeTests {
@@ -28,25 +30,13 @@ public class ProgressiveTaxTypeTests {
 
     @Test
     public void testCalculateTaxForMin() {
-        //arrange
-        double a = 1000.00, excepted = 100.00;
-
-        //act
-        double result = sut.calculateTaxFor(a);
-
-        //assert
-        assertEquals(excepted, result);
+        double a = 1000.00;
+        assertThat(100.00, IsEqual.equalTo(sut.calculateTaxFor(a)));
     }
 
     @Test
     public void testCalculateTaxForMax() {
-        //arrange
         double a = 200_000.00, excepted = 30_000.00;
-
-        //act
-        double result = sut.calculateTaxFor(a);
-
-        //assert
-        assertEquals(excepted, result);
+        assertThat(30_000.00, IsEqual.equalTo(sut.calculateTaxFor(a)));
     }
 }

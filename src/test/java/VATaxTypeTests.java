@@ -6,12 +6,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.object.IsCompatibleType.typeCompatibleWith;
 
 public class VATaxTypeTests {
-    VATaxType sut;
+    VATaxType testVATaxType;
 
     @BeforeEach
     public void init() {
         System.out.println("test started");
-        sut = new VATaxType();
+        testVATaxType = new VATaxType();
     }
 
     @BeforeAll
@@ -31,8 +31,8 @@ public class VATaxTypeTests {
 
     @Test
     public void testCalculateTaxFor() {
-        double a = 100_000.00;
-        assertThat(18000.00, IsEqual.equalTo(sut.calculateTaxFor(a)));
+        double testAmount = 100_000.00;
+        assertThat(18000.00, IsEqual.equalTo(testVATaxType.calculateTaxFor(testAmount)));
     }
 
     @Test

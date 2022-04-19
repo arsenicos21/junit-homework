@@ -5,12 +5,12 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class IncomeTaxTypeTests {
-    IncomeTaxType sut;
+    IncomeTaxType testIncomeTaxType;
 
     @BeforeEach
     public void init() {
         System.out.println("test started");
-        sut = new IncomeTaxType();
+        testIncomeTaxType = new IncomeTaxType();
     }
 
     @BeforeAll
@@ -30,7 +30,7 @@ public class IncomeTaxTypeTests {
 
     @Test
     public void testCalculateTaxFor() {
-        double a = 100.00;
-        assertThat(13.00, IsEqual.equalTo(sut.calculateTaxFor(a)));
+        double testAmount = 100.00;
+        assertThat(13.00, IsEqual.equalTo(testIncomeTaxType.calculateTaxFor(testAmount)));
     }
 }
